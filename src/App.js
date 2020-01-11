@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import Home from './Components/Home';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import Navbar from './Components/Navbar';
+import Preop from './Components/Preop';
+import Postop from './Components/Postop';
+import Insurance from './Components/Insurance';
+import Personal from './Components/Personal';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <BrowserRouter>
+      <div className="App">
+        <Navbar/>
+        <Switch>
+          <Route exact path="/" component={Home}/>
+          <Route exact path="/preop" component={Preop}/>
+          <Route exact path="/postop" component={Postop} />
+          <Route exact path="/insurance" component={Insurance} />
+          <Route exact path="/personal" component={Personal} />
+
+        </Switch>
+      </div>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;
