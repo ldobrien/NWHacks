@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { addPhysio } from "../store/actions/projectActions";
+import { connect } from "react-redux";
 
 class Physio extends Component {
     state = {
@@ -7,9 +9,9 @@ class Physio extends Component {
         msp: 0,
         otherCoverage: 0,
         totalCost: 0,
-        totalToDate: 0,
+        totalToDate: this.props.physio.totalCost || 0,
         sessions: 0,
-        totalSessions: 0,
+        totalSessions: this.props.physio.totalSessions || 0,
     }
 
     handleSubmit = (e) => {
@@ -22,6 +24,7 @@ class Physio extends Component {
             totalToDate: totalToDate,
             totalSessions: totalSess
         })
+        this.props.addPhysio({totalCost: totalToDate, totalSessions: totalSess})
     }
 
     handleChange = (e) =>{
@@ -63,4 +66,15 @@ class Physio extends Component {
     }
   }
 
-  export default Physio;
+  const mapStatetoProps = (state) => {
+    return {
+        physio: state.project.physio
+    }
+}
+const mapDispatchtoProps = (dispatch) => {
+    return {
+        addPhysio: (med) => dispatch(addPhysio(med))
+    }
+}
+export default connect(mapStatetoProps, mapDispatchtoProps)(Physio)
+//   export default Physio;

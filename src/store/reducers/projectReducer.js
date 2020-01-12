@@ -4,6 +4,11 @@ const initState = {
         totalCost: 0,
         totalToDate: 0,
     },
+    physio: {
+        totalCost: 0,
+        totalSessions: 0,
+
+    },
     appointments: [],
     exercises: [],
     medications: [],
@@ -32,6 +37,15 @@ const projectReducer = (state = initState, action) => {
         case 'ADD_MED_OP':
             return{
                 medications: [...state.medications, action.med]
+            }
+        case 'ADD_PHYSIO':
+            return {
+                ...state,
+                physio: {
+                    ...state.physio,
+                    totalCost: action.med.totalCost,
+                    totalSessions: action.med.totalSessions
+                }
             }
         default:
             return state;

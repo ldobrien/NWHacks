@@ -21,3 +21,11 @@ export const addMedOp = (med)=> {
         dispatch({ type: "ADD_MED_OP", med: med})
     }
 }
+
+export const addPhysio = (med)=> {
+    return (dispatch, getState) => {
+        dispatch({ type: "ADD_PHYSIO", med: med})
+    }
+}
+
+
