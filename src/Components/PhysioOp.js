@@ -28,12 +28,16 @@ class PhysioOp extends Component {
     }
 
   render() {
-      let appts = []
+      let appts = [];
       if(this.props.appointments){
         this.props.appointments.forEach(element => {
             appts.push(<div key={appts.length} className="black-text">
-            <p>Location: {element.location}</p>
-            <p>Time:{element.time}</p>
+                <div className="card">
+                    <div className="card-content">
+                        <p>Location: {element.location}</p>
+                        <p>Time:{element.time}</p>
+                    </div>
+                </div>
         </div>)
         })
       }
@@ -52,8 +56,10 @@ class PhysioOp extends Component {
                         }}
                     />
                     <input type="text" onChange={this.handleChange} name="Location" placeholder="Location"/>
-                    <button type="submit"> Add </button>
+                    <button className="btn" type="submit"> + Add Appointment</button>
                 </form>
+             <br />
+             <br />
                 {appts}
         </div>
   );
@@ -71,4 +77,3 @@ const mapDispatchtoProps = (dispatch) => {
     }
 }
 export default connect(mapStatetoProps, mapDispatchtoProps)(PhysioOp);
-  
