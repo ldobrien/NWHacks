@@ -67,7 +67,7 @@ class HomeScreen extends Component {
 
 
     render() {
-        var costs = this.props.medicationCosts && this.props.medicationCosts.totalToDate ? this.props.medicationCosts.totalToDate : 0;
+        var costs = this.props.medicationCosts && this.props.physio && this.props.medicationCosts.totalToDate && this.props.physio.totalCost ? this.props.medicationCosts.totalToDate + this.props.physio.totalCost : 0;
       return (
           <div>
               <Box display="flex" justifyContent="flex-end">
@@ -127,7 +127,8 @@ class HomeScreen extends Component {
 
   const mapStatetoProps = (state) => {
     return {
-        medicationCosts: state.project.medicationCosts
+        medicationCosts: state.project.medicationCosts,
+        physio: state.project.physio
     }
 }
 export default connect(mapStatetoProps)(HomeScreen)
