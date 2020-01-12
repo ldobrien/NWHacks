@@ -16,6 +16,12 @@ class MedicationsEntry extends Component {
         e.preventDefault();
         var total = this.state.price - this.state.msp - this.state.otherCoverage;
         var totalToDate = total + this.state.totalToDate
+        console.log(this.state)
+        console.log("total ",total)
+        this.setState({
+            totalCost: total,
+            totalToDate: totalToDate
+        })
         this.props.addMedication({name: this.state.name, totalCost: total, totalToDate});
     }
 
@@ -26,6 +32,7 @@ class MedicationsEntry extends Component {
     }
 
     render() {
+        console.log(this.props.medicationCosts)
       return <div className="black-text">
           <form onSubmit={this.handleSubmit} className="white">
             <h5 className="grey-text text-darken-3">Cost</h5>
