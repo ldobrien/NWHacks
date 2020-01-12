@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux"
 import {signIn }from "../store/actions/authActions"
+import logo from '../images/logo.png';
+import op from '../images/op.png';
+import './Login.css'
 
 class Login extends Component {
     state = {
@@ -23,6 +26,9 @@ class Login extends Component {
     render() {
         return(
             <div className="container">
+            {/* <h1 className="black-text center">Welcome to OpBuddy</h1> */}
+            <div id="logo" className="center" ><img src={logo} alt="Logo" /></div>
+            {/* <h4 className="grey-text center">Please Log In</h4> */}
                 <form onSubmit={this.handleSubmit} className="white">
                     <h5 className="grey-text text-darken-3">Sign In</h5>
                     <div className="input-field">
@@ -38,6 +44,7 @@ class Login extends Component {
 
                     </div>
                 </form>
+                <div id="logo2" className="right" ><img src={op} alt="Op" /></div>
             </div>
         )
     }
