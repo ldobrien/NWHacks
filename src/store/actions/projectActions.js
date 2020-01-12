@@ -9,3 +9,9 @@ export const addAppointment = (appt)=> {
         dispatch({ type: "ADD_APPT", appt: appt})
     }
 }
+
+export const addExercise = (exercise)=> {
+    return (dispatch, getState) => {
+        dispatch({ type: "ADD_EXERCISE", exercise: exercise})
+    }
+}
