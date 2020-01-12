@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {makeStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Home from '@material-ui/icons/Home';
-import PersonPinIcon from '@material-ui/icons/PersonPin';
 import Healing from '@material-ui/icons/Healing';
 import ShoppingBasket from '@material-ui/icons/ShoppingBasket';
-import ThumbDown from '@material-ui/icons/ThumbDown';
 import AttachMoney from '@material-ui/icons/AttachMoney';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
@@ -16,7 +13,6 @@ import Event from '@material-ui/icons/Event';
 import Insurance from './Insurance';
 import CalendarPage from './CalendarPage';
 import Preop from './Preop';
-import Personal from './Personal';
 import Medications from './Medications';
 import Login from './Login';
 import HomeScreen from './Home';
@@ -104,7 +100,7 @@ export class ScrollableTabsButtonForce extends Component {
                         <Insurance/>
                     </TabPanel>
                     <TabPanel value={this.state.value} index={4}>
-                        <Calendar/>
+                        <CalendarPage/>
                     </TabPanel>
 
 
