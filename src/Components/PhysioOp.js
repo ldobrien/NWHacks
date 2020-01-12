@@ -27,24 +27,30 @@ class PhysioOp extends Component {
       if(this.props.exercises){
         this.props.exercises.forEach(element => {
             exercises.push(<div key={exercises.length} className="black-text">
-            <p>Name: {element.name}</p>
-            <p>Description:{element.desc}</p>
-            <p>Duration:{element.duration}</p>
-            <p>Reps:{element.reps}</p>
-            <p>Frequency:{element.frequency}</p>
+                <div className="card">
+                    <div className="card-content">
+                        <p>Exercise Name: {element.name}</p>
+                        <p>Description:{element.desc}</p>
+                        <p>Duration:{element.duration}</p>
+                        <p>Reps:{element.reps}</p>
+                        <p>Frequency:{element.frequency}</p>
+                    </div>
+                </div>
         </div>)
         })
       }
       return (
          <div>
              <form onSubmit={this.handleSubmit}>
-                <input type="text" onChange={this.handleChange} id="name" name="Name" placeholder="Name"/>
+                <input type="text" onChange={this.handleChange} id="name" name="Name" placeholder="Exercise Name"/>
                 <input type="text" onChange={this.handleChange} id="desc" name="Description" placeholder="Description"/>
                 <input type="text" onChange={this.handleChange} id="duration" name="Duration" placeholder="Duration"/>
                 <input type="number" onChange={this.handleChange} id="reps" name="Repetitions" placeholder="Repetitions"/>
                 <input type="text" onChange={this.handleChange} id="frequency" name="Frequency" placeholder="Frequency"/>
-                <button type="submit"> Add </button>
+                <button className="btn" type="submit">+ Add Physio Exercise</button>
             </form>
+             <br />
+             <br />
             {exercises}
         </div>
   );
