@@ -4,6 +4,7 @@ const initState = {
         totalCost: 0,
         totalToDate: 0,
     },
+    appointments: [],
 }
 
 const projectReducer = (state = initState, action) => {
@@ -17,6 +18,10 @@ const projectReducer = (state = initState, action) => {
                     totalCost: action.med.totalCost,
                     totalToDate: action.med.totalToDate
                 }
+            }
+        case 'ADD_APPT':
+            return{
+                appointments: [...state.appointments, action.appt]
             }
         
         default:
