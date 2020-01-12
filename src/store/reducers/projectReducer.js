@@ -1,6 +1,6 @@
 const initState = {
     medicationCosts: {
-        name: [],
+        name: ["Advil", "Oxycotin", "Warfarin"],
         totalCost: 0,
         totalToDate: 0,
     },

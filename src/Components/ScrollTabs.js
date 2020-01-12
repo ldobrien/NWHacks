@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {makeStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -18,8 +18,9 @@ import CalendarPage from './CalendarPage';
 import Preop from './Preop';
 import Personal from './Personal';
 import Medications from './Medications';
-import {Login} from './Login';
+import Login from './Login';
 import HomeScreen from './Home';
+import { connect } from "react-redux"
 
 function TabPanel(props) {
     const {children, value, index, ...other} = props;
@@ -51,61 +52,83 @@ function a11yProps(index) {
     };
 }
 
-const useStyles = makeStyles(theme => ({
-    root: {
-        flexGrow: 1,
-        width: '100%',
-        backgroundColor: theme.palette.background.paper,
-    },
-}));
+// const useStyles = makeStyles(theme => ({
+//     root: {
+//         flexGrow: 1,
+//         width: '100%',
+//         backgroundColor: theme.palette.background.paper,
+//     },
+// }));
 
-export default function ScrollableTabsButtonForce() {
-    const classes = useStyles();
-    const [value, setValue] = React.useState(0);
+export class ScrollableTabsButtonForce extends Component {
+    state = {
+        value: 0,
+    }
 
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-    };
+    handleChange = (e) => {
+        this.setState({
+            value: e,
+        })
+    }
+    render(){
+        if(this.props.loggedIn){
+            return (
+                <div>
+                    <AppBar position="static" color="default">
+                        <Tabs
+                            value={this.state.value}
+                            onChange={(e, v) => this.handleChange(v)}
+                            variant="scrollable"
+                            scrollButtons="on"
+                            indicatorColor="primary"
+                            textColor="primary"
+                            aria-label="scrollable force tabs example"
+                        >
+                            <Tab label="Home" icon={<Home/>} {...a11yProps(0)} />
+                            <Tab label="OperativeCare" icon={<Healing/>} {...a11yProps(1)} />
+                            <Tab label="Medications" icon={<ShoppingBasket/>} {...a11yProps(2)} />
+                            <Tab label="Costs" icon={<AttachMoney/>} {...a11yProps(3)} />
+                            <Tab label="Calendar" icon={<Event/>} {...a11yProps(4)} />
+                        </Tabs>
+                    </AppBar>
+                    <TabPanel value={this.state.value} index={0}>
+                        <HomeScreen/>
+                    </TabPanel>
+                    <TabPanel value={this.state.value} index={1}>
+                        <Preop/>
+                    </TabPanel>
+                    <TabPanel value={this.state.value} index={2}>
+                        <Medications/>
+                    </TabPanel>
+                    <TabPanel value={this.state.value} index={3}>
+                        <Insurance/>
+                    </TabPanel>
+                    <TabPanel value={this.state.value} index={4}>
+                        <Calendar/>
+                    </TabPanel>
 
-    return (
-        <div className={classes.root}>
-            <AppBar position="static" color="default">
-                <Tabs
-                    value={value}
-                    onChange={handleChange}
-                    variant="scrollable"
-                    scrollButtons="on"
-                    indicatorColor="primary"
-                    textColor="primary"
-                    aria-label="scrollable force tabs example"
-                >
-                    <Tab label="Home" icon={<Home/>} {...a11yProps(0)} />
-                    <Tab label="OperativeCare" icon={<Healing/>} {...a11yProps(1)} />
-                    <Tab label="Medications" icon={<ShoppingBasket/>} {...a11yProps(2)} />
-                    <Tab label="Costs" icon={<AttachMoney/>} {...a11yProps(3)} />
-                    <Tab label="Calendar" icon={<Event/>} {...a11yProps(4)} />
-                    <Tab label="Login" icon={<ThumbDown/>} {...a11yProps(5)} />
-                </Tabs>
-            </AppBar>
-            <TabPanel value={value} index={0}>
-                <HomeScreen/>
-            </TabPanel>
-            <TabPanel value={value} index={1}>
-                <Preop/>
-            </TabPanel>
-            <TabPanel value={value} index={2}>
-                <Medications/>
-            </TabPanel>
-            <TabPanel value={value} index={3}>
-                <Insurance/>
-            </TabPanel>
-            <TabPanel value={value} index={4}>
-                <CalendarPage/>
-            </TabPanel>
-            <TabPanel value={value} index={5}>
-                <Login/>
-            </TabPanel>
-        </div>
-    );
+
+                </div>
+            );
+            } else {
+                return (
+                    <div>
+                        <TabPanel value={this.state.value} index={0}>
+                            <Login/>
+                        </TabPanel>
+                    </div>
+                );
+                }
+            }
 }
+
+const mapStatetoProps = (state) => {
+    return {
+        loggedIn: state.auth.loggedIn
+    }
+
+}
+
+export default connect(mapStatetoProps)(ScrollableTabsButtonForce)
+
 

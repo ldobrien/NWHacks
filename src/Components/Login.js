@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux"
 import {signIn }from "../store/actions/authActions"
-import {Redirect } from "react-router-dom"
 
-export class Login extends Component {
+class Login extends Component {
     state = {
         username: null,
         password: null
@@ -11,6 +10,7 @@ export class Login extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+        console.log(this.props.loggedIn)
         this.props.signIn(this.state);
     }
 
@@ -21,13 +21,6 @@ export class Login extends Component {
     }
 
     render() {
-        const {loggedIn}= this.props;
-
-        if(loggedIn) {
-            return(
-                <Redirect to="/"/>
-            )
-        }
         return(
             <div className="container">
                 <form onSubmit={this.handleSubmit} className="white">
@@ -49,6 +42,7 @@ export class Login extends Component {
         )
     }
 }
+
 const mapStatetoProps = (state) => {
     return {
         loggedIn: state.auth.loggedIn
