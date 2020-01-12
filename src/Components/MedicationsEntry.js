@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
+import { addMedication } from "../store/actions/projectActions";
 
 class MedicationsEntry extends Component {
     state = {
@@ -6,8 +8,8 @@ class MedicationsEntry extends Component {
         price: 0,
         msp: 0,
         otherCoverage: 0,
-        totalCost: 0,
-        totalToDate: 0,
+        totalCost: this.props.medicationCosts.totalCost,
+        totalToDate: this.props.medicationCosts.totalToDate,
     }
 
     handleSubmit = (e) => {
@@ -18,6 +20,7 @@ class MedicationsEntry extends Component {
             totalCost: total,
             totalToDate: totalToDate
         })
+        this.props.addMedication(this.state);
     }
 
     handleChange = (e) =>{
@@ -27,6 +30,7 @@ class MedicationsEntry extends Component {
     }
 
     render() {
+        console.log(this.props.medicationCosts)
       return <div className="black-text">
           <form onSubmit={this.handleSubmit} className="white">
             <h5 className="grey-text text-darken-3">Cost</h5>
@@ -59,4 +63,14 @@ class MedicationsEntry extends Component {
     }
   }
 
-  export default MedicationsEntry;
+  const mapStatetoProps = (state) => {
+    return {
+        medicationCosts: state.project.medicationCosts
+    }
+}
+const mapDispatchtoProps = (dispatch) => {
+    return {
+        addMedication: (med) => dispatch(addMedication(med))
+    }
+}
+export default connect(mapStatetoProps, mapDispatchtoProps)(MedicationsEntry)

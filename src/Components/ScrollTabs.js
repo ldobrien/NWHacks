@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import PhoneIcon from '@material-ui/icons/Phone';
+import Home from '@material-ui/icons/Home';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import PersonPinIcon from '@material-ui/icons/PersonPin';
 import Healing from '@material-ui/icons/Healing';
@@ -19,6 +19,7 @@ import Postop from './Postop';
 import Personal from './Personal';
 import Medications from './Medications';
 import { Login } from './Login';
+import HomeScreen from './Home';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -85,6 +86,7 @@ export default function ScrollableTabsButtonForce() {
           <Tab label="Personal" icon={<PersonPinIcon />} {...a11yProps(3)} />
           <Tab label="Medications" icon={<ShoppingBasket />} {...a11yProps(4)} />
           <Tab label="Login" icon={<ThumbDown />} {...a11yProps(5)} />
+          <Tab label="Home" icon={<Home />} {...a11yProps(6)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
@@ -104,6 +106,9 @@ export default function ScrollableTabsButtonForce() {
       </TabPanel>
       <TabPanel value={value} index={5}>
         <Login/>
+      </TabPanel>
+      <TabPanel value={value} index={6}>
+        <HomeScreen/>
       </TabPanel>
     </div>
   );

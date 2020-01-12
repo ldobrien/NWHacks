@@ -1,5 +1,5 @@
-export const createProject = (project )=> {
-    return (dispatch) => {
-        
+export const addMedication = (med)=> {
+    return (dispatch, getState) => {
+        dispatch({ type: "ADD_MEDICATION", med: med})
     }
 }
