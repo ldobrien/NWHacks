@@ -28,7 +28,6 @@ class PhysioOp extends Component {
     }
 
   render() {
-      console.log(this.props.appointments)
       let appts = []
       if(this.props.appointments){
         this.props.appointments.forEach(element => {
