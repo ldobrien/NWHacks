@@ -35,24 +35,19 @@ class Physio extends Component {
           <form onSubmit={this.handleSubmit} className="white">
             <h5 className="grey-text text-darken-3">Cost</h5>
             <div className="input-field">
-                <label>Medication Name</label>
-                <input type="text" id="name" onChange={this.handleChange}/>
+                <input type="text" id="name" onChange={this.handleChange} placeholder="Physiotherapist Name"/>
             </div>
             <div className="input-field">
-                <label>Price</label>
-                <input type="number" id="price" onChange={this.handleChange}/>
+                <input type="number" id="price" onChange={this.handleChange} placeholder="Price"/>
             </div>
             <div className="input-field">
-                <label>MSP Coverage</label>
-                <input type="number" id="msp" onChange={this.handleChange}/>
+                <input type="number" id="msp" onChange={this.handleChange} placeholder="MSP Coverage"/>
             </div>
             <div className="input-field">
-                <label>Other Coverage</label>
-                <input type="number" id="otherCoverage" onChange={this.handleChange}/>
+                <input type="number" id="otherCoverage" onChange={this.handleChange} placeholder="Other Coverage"/>
             </div>
             <div className="input-field">
-                <label>Number of Sessions</label>
-                <input type="number" id="sessions" onChange={this.handleChange}/>
+                <input type="number" id="sessions" onChange={this.handleChange} placeholder="Number of Sessions"/>
             </div>
             <div className="input-field">
                 <button className="btn">Submit</button>

@@ -81,7 +81,7 @@ export class ScrollableTabsButtonForce extends Component {
                             aria-label="scrollable force tabs example"
                         >
                             <Tab label="Home" icon={<Home/>} {...a11yProps(0)} />
-                            <Tab label="OperativeCare" icon={<Healing/>} {...a11yProps(1)} />
+                            <Tab label="Operative Care" icon={<Healing/>} {...a11yProps(1)} />
                             <Tab label="Medications" icon={<ShoppingBasket/>} {...a11yProps(2)} />
                             <Tab label="Costs" icon={<AttachMoney/>} {...a11yProps(3)} />
                             <Tab label="Calendar" icon={<Event/>} {...a11yProps(4)} />
