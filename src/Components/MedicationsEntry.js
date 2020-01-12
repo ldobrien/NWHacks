@@ -16,8 +16,7 @@ class MedicationsEntry extends Component {
         e.preventDefault();
         var total = this.state.price - this.state.msp - this.state.otherCoverage;
         var totalToDate = total + this.state.totalToDate
-        console.log(this.state)
-        console.log("total ",total)
+
         this.setState({
             totalCost: total,
             totalToDate: totalToDate
