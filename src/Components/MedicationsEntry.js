@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
 
-class Medications extends Component {
+class MedicationsEntry extends Component {
     state = {
         name: null,
-        price: null,
-        msp: null,
-        otherCoverage: null,
+        price: 0,
+        msp: 0,
+        otherCoverage: 0,
         totalCost: 0,
         totalToDate: 0,
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state) // TODO
-        // this.props.signIn(this.state);
+        var total = this.state.price - this.state.msp - this.state.otherCoverage;
+        var totalToDate = total + this.state.totalToDate
+        this.setState({
+            totalCost: total,
+            totalToDate: totalToDate
+        })
     }
 
     handleChange = (e) =>{
@@ -32,19 +36,22 @@ class Medications extends Component {
             </div>
             <div className="input-field">
                 <label>Price</label>
-                <input type="text" id="price" onChange={this.handleChange}/>
+                <input type="number" id="price" onChange={this.handleChange}/>
             </div>
             <div className="input-field">
                 <label>MSP Coverage</label>
-                <input type="text" id="msp" onChange={this.handleChange}/>
+                <input type="number" id="msp" onChange={this.handleChange}/>
             </div>
             <div className="input-field">
                 <label>Other Coverage</label>
-                <input type="text" id="otherCoverage" onChange={this.handleChange}/>
+                <input type="number" id="otherCoverage" onChange={this.handleChange}/>
+            </div>
+            <div className="input-field">
+                <button className="btn">Submit</button>
             </div>
         </form>
         <div>
-                <p>Total Cost: {this.state.totalCost}</p>
+                <p>Total Cost of Entry: {this.state.totalCost}</p>
                 <p>Total Cost to Date: {this.state.totalToDate}</p>
             </div>
 
@@ -52,4 +59,4 @@ class Medications extends Component {
     }
   }
 
-  export default Medications;
+  export default MedicationsEntry;
