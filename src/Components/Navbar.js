@@ -12,6 +12,7 @@ const Navbar = () => {
                     <li><NavLink to="/preop">PreOp</NavLink></li>
                     <li><NavLink to="/postop">PostOp</NavLink></li>
                     <li><NavLink to="/personal">Personal</NavLink></li>
+                    <li><NavLink to="/login">Login</NavLink></li>
                 </ul>
 
             </div>

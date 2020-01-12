@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import SimpleTabs from './Tabs'
 
 class Insurance extends Component {
-    render() {
-      return <h1>Insurance</h1>;
+    render(){
+        return <SimpleTabs />;
     }
-  }
+}
 
   export default Insurance;
