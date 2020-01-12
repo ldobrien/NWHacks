@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import 'materialize-css/dist/css/materialize.min.css'
-import {PhotoCamera} from "@material-ui/icons";
+import {PhotoCamera, Input} from "@material-ui/icons";
 import IconButton from "@material-ui/core/IconButton";
 import Box from '@material-ui/core/Box';
 import FaceIcon from '@material-ui/icons/Face';
 import './home.css'
+import { connect } from "react-redux"
 
 const ComputerVisionClient = require('@azure/cognitiveservices-computervision').ComputerVisionClient;
 const ApiKeyCredentials = require('@azure/ms-rest-js').ApiKeyCredentials;
@@ -65,6 +66,8 @@ class HomeScreen extends Component {
 
 
     render() {
+        console.log(this.props.medicationCosts)
+        var costs = this.props.medicationCosts && this.props.medicationCosts.totalToDate ? this.props.medicationCosts.totalToDate : 0;
       return (
           <div>
               <Box display="flex">
@@ -72,14 +75,16 @@ class HomeScreen extends Component {
                   <FaceIcon />
                   <h6 style={{color: '#3f51b5'}}>HELLO, BARBARA</h6>
               </Box>
-              <h6 style={{color: 'black'}}>Overview</h6>
+            <h6 style={{color: 'black'}}>Overview</h6>
              <div className="card black-text">
                  <div className="card-content">
-                    <p>Total Cost of Entry: </p>
-                    <p>Total Cost to Date:</p>
+                    <p>Total Cost to Date: {costs}</p>
                  </div>
              </div>
               <Box display="flex" justifyContent="flex-end">
+              <form>
+              <input type="text" id="reminders" placeholder="Reminders"/>
+              </form>
                   <IconButton color="primary" aria-label="upload picture" component="span" onClick={this.foo}>
                       <PhotoCamera size="large"/>
                   </IconButton>
@@ -120,5 +125,11 @@ class HomeScreen extends Component {
 };
   }
 
-  export default HomeScreen;
+  const mapStatetoProps = (state) => {
+    return {
+        medicationCosts: state.project.medicationCosts
+    }
+}
+export default connect(mapStatetoProps)(HomeScreen)
+//   export default HomeScreen;
 
