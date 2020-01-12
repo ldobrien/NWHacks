@@ -31,7 +31,7 @@ class Physio extends Component {
     }
 
     render() {
-      return <div>
+      return <div className="black-text">
           <form onSubmit={this.handleSubmit} className="white">
             <h5 className="grey-text text-darken-3">Cost</h5>
             <div className="input-field">

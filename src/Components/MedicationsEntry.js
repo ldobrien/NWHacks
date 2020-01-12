@@ -27,7 +27,7 @@ class MedicationsEntry extends Component {
     }
 
     render() {
-      return <div>
+      return <div className="black-text">
           <form onSubmit={this.handleSubmit} className="white">
             <h5 className="grey-text text-darken-3">Cost</h5>
             <div className="input-field">
@@ -50,7 +50,7 @@ class MedicationsEntry extends Component {
                 <button className="btn">Submit</button>
             </div>
         </form>
-        <div>
+        <div className="black-text">
                 <p>Total Cost of Entry: {this.state.totalCost}</p>
                 <p>Total Cost to Date: {this.state.totalToDate}</p>
             </div>
