@@ -66,7 +66,6 @@ class HomeScreen extends Component {
 
 
     render() {
-        console.log(this.props.medicationCosts)
         var costs = this.props.medicationCosts && this.props.medicationCosts.totalToDate ? this.props.medicationCosts.totalToDate : 0;
       return (
           <div>

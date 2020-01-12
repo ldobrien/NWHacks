@@ -4,6 +4,7 @@ import {signIn }from "../store/actions/authActions"
 import logo from '../images/logo.png';
 import op from '../images/op.png';
 import './Login.css'
+import Box from "@material-ui/core/Box";
 
 class Login extends Component {
     state = {
@@ -13,7 +14,6 @@ class Login extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.props.loggedIn)
         this.props.signIn(this.state);
     }
 
@@ -27,7 +27,9 @@ class Login extends Component {
         return(
             <div className="container">
             {/* <h1 className="black-text center">Welcome to OpBuddy</h1> */}
-            <div id="logo" className="center" ><img src={logo} alt="Logo" /></div>
+            <Box display="flex" justifyContent="center" className="container">
+                <div id="logo"><img src={logo} alt="Logo" /></div>
+            </Box>
             {/* <h4 className="grey-text center">Please Log In</h4> */}
                 <form onSubmit={this.handleSubmit} className="white">
                     <h5 className="grey-text text-darken-3">Sign In</h5>
