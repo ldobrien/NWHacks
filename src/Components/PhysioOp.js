@@ -39,7 +39,7 @@ class PhysioOp extends Component {
          <div>
              <form onSubmit={this.handleSubmit}>
                 <input type="text" onChange={this.handleChange} id="name" name="Name" placeholder="Name"/>
-                <input type="text" onChange={this.handleChange} id="desc" name="Description" placeholder="Desscription"/>
+                <input type="text" onChange={this.handleChange} id="desc" name="Description" placeholder="Description"/>
                 <input type="text" onChange={this.handleChange} id="duration" name="Duration" placeholder="Duration"/>
                 <input type="number" onChange={this.handleChange} id="reps" name="Repetitions" placeholder="Repetitions"/>
                 <input type="text" onChange={this.handleChange} id="frequency" name="Frequency" placeholder="Frequency"/>
@@ -62,4 +62,3 @@ const mapDispatchtoProps = (dispatch) => {
     }
 }
 export default connect(mapStatetoProps, mapDispatchtoProps)(PhysioOp);
-  
