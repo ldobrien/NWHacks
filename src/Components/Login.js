@@ -34,12 +34,10 @@ class Login extends Component {
                 <form onSubmit={this.handleSubmit} className="white">
                     <h5 className="grey-text text-darken-3">Sign In</h5>
                     <div className="input-field">
-                        <label htmlFor="username">Username</label>
-                        <input type="text" id="username" onChange={this.handleChange}/>
+                        <input type="text" id="username" onChange={this.handleChange} placeholder="Username"/>
                     </div>
                     <div className="input-field">
-                        <label htmlFor="password">Password</label>
-                        <input type="password" id="password" onChange={this.handleChange}/>
+                        <input type="password" id="password" onChange={this.handleChange} placeholder="Password"/>
                     </div>
                     <div className="input-field">
                         <button className="btn pink">Sign In</button>

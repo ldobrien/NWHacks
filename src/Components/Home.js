@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'materialize-css/dist/css/materialize.min.css'
 import {PhotoCamera, Input} from "@material-ui/icons";
+import BackupIcon from '@material-ui/icons/Backup';
 import IconButton from "@material-ui/core/IconButton";
 import Box from '@material-ui/core/Box';
 import FaceIcon from '@material-ui/icons/Face';
@@ -69,10 +70,10 @@ class HomeScreen extends Component {
         var costs = this.props.medicationCosts && this.props.medicationCosts.totalToDate ? this.props.medicationCosts.totalToDate : 0;
       return (
           <div>
-              <Box display="flex">
-                  <FaceIcon color="primary" fontSize="large"/>
-                  <FaceIcon />
+              <Box display="flex" justifyContent="flex-end">
                   <h6 style={{color: '#3f51b5'}}>HELLO, BARBARA</h6>
+                  <FaceIcon />
+                  <FaceIcon color="primary" fontSize="large"/>
               </Box>
             <h6 style={{color: 'black'}}>Overview</h6>
              <div className="card black-text">
@@ -80,14 +81,14 @@ class HomeScreen extends Component {
                     <p>Total Cost to Date: {costs}</p>
                  </div>
              </div>
-              <Box display="flex" justifyContent="flex-end">
-              <form>
-              <input type="text" id="reminders" placeholder="Reminders"/>
-              </form>
+              <Box display="flex" justifyContent="flex-start" alignItems="center">
                   <IconButton color="primary" aria-label="upload picture" component="span" onClick={this.foo}>
-                      <PhotoCamera size="large"/>
+                      <BackupIcon size="large"/>
                   </IconButton>
                   <h6 style={{color: '#3f51b5'}}>UPLOAD</h6>
+                  <form>
+                      <input type="file" id="file" placeholder="Choose File"/>
+                  </form>
               </Box>
               <h6 style={{color: 'black'}}>Reminders</h6>
               <div className="row">
