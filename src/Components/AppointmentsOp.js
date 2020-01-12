@@ -5,7 +5,7 @@ import { addAppointment } from "../store/actions/projectActions";
 
 class AppointmentsOp extends Component {
     state ={
-        time: "2017-05-24T10:30",
+        time: "2020-01-12T13:30",
         location: null,
         // frequency: null,
     }
@@ -49,7 +49,7 @@ class AppointmentsOp extends Component {
                         id="datetime-local"
                         label="Next appointment"
                         type="datetime-local"
-                        defaultValue="2017-05-24T10:30"
+                        defaultValue="2020-01-12T13:30"
                         className="textField"
                         InputLabelProps={{
                             shrink: true,

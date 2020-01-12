@@ -7,8 +7,8 @@ import TextField from '@material-ui/core/TextField';
 class MedicationsOp extends Component {
   state = {
     name: null,
-    startDate: "2017-05-24T10:30",
-    endDate: "2017-05-24T10:30",
+    startDate: "2020-01-12T13:30",
+    endDate: "2020-01-13T13:30",
     frequency: null,
   }
 
@@ -40,10 +40,14 @@ class MedicationsOp extends Component {
     if(this.props.medications){
       this.props.medications.forEach(elem => {
         meds.push(<div className="black-text" key={meds.length}>
-        <p>Name: {elem.name}</p>
-        <p>Start Date: {elem.startDate}</p>
-        <p>End Date: {elem.endDate}</p>
-        <p>Frequency: {elem.frequency}</p>
+          <div className="card">
+            <div className="card-content">
+              <p>Name: {elem.name}</p>
+              <p>Start Date: {elem.startDate}</p>
+              <p>End Date: {elem.endDate}</p>
+              <p>Frequency: {elem.frequency}</p>
+            </div>
+          </div>
         </div>)
       })
     }
@@ -51,15 +55,14 @@ class MedicationsOp extends Component {
         <div>
           <form onSubmit={this.handleSubmit} className="white">
             <div className="input-field">
-              <label>Medication Name</label>
-              <input type="text" id="name" onChange={this.handleChange}/>
+              <input type="text" id="name" onChange={this.handleChange} placeholder="Medication Name"/>
             </div>
             <TextField
                 onChange={this.handleStartTimeChange}
                 id="datetime-local"
                 label="Start Date"
                 type="datetime-local"
-                defaultValue="2017-05-24T10:30"
+                defaultValue="2020-01-12T13:30"
                 className="textField"
                 InputLabelProps={{
                     shrink: true,
@@ -70,20 +73,21 @@ class MedicationsOp extends Component {
                 id="datetime-local"
                 label="End Date"
                 type="datetime-local"
-                defaultValue="2017-05-24T10:30"
+                defaultValue="2020-01-12T13:30"
                 className="textField"
                 InputLabelProps={{
                     shrink: true,
                 }}
             />
             <div className="input-field">
-              <label>Frequency</label>
-              <input type="text" id="frequency" onChange={this.handleChange}/>
+              <input type="text" id="frequency" onChange={this.handleChange} placeholder="Frequency"/>
             </div>
             <div className="input-field">
               <button className="btn" onClick={this.handleSubmit}>+ Add Medication</button>
             </div>
           </form>
+          <br />
+          <br />
           {meds}
         </div>
 

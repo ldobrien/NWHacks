@@ -14,7 +14,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Event from '@material-ui/icons/Event';
 import Insurance from './Insurance';
-import Calendar from './Calendar';
+import CalendarPage from './CalendarPage';
 import Preop from './Preop';
 import Personal from './Personal';
 import Medications from './Medications';
@@ -107,6 +107,7 @@ export class ScrollableTabsButtonForce extends Component {
                         <Calendar/>
                     </TabPanel>
 
+
                 </div>
             );
             } else {
@@ -125,6 +126,7 @@ const mapStatetoProps = (state) => {
     return {
         loggedIn: state.auth.loggedIn
     }
+
 }
 
 export default connect(mapStatetoProps)(ScrollableTabsButtonForce)
