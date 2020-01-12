@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
+import './Medications.css'
 
 class Medications extends Component {
 
-    
     render() {
       var medList = []
       if(this.props.medicationCosts) {
         this.props.medicationCosts.name.forEach(element => {
-          medList.push(<div key={medList.length}>{element}</div>)
+          medList.push(<div id="medList" key={medList.length }><h5 id="element">{element}</h5></div>)
         });
       }
 
-      return <div className="black-text">{medList}</div>;
+      return <div>{medList}</div>;
     }
   }
 
