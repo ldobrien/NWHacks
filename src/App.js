@@ -7,6 +7,7 @@ import Postop from './Components/Postop';
 import Insurance from './Components/Insurance';
 import Personal from './Components/Personal';
 
+
 class App extends Component {
   render() {
     return (
@@ -19,7 +20,6 @@ class App extends Component {
           <Route exact path="/postop" component={Postop} />
           <Route exact path="/insurance" component={Insurance} />
           <Route exact path="/personal" component={Personal} />
-
         </Switch>
       </div>
       </BrowserRouter>

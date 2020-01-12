@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom';
-
+import 'materialize-css/dist/css/materialize.min.css'
 
 const Navbar = () => {
     return(
-        <nav className="nav-wrapper pink">
+        <nav className="nav-wrapper blue-grey">
             <div className="container">
                 <ul className="right">
                     <li><Link to="/">Home</Link></li>
@@ -17,6 +17,6 @@ const Navbar = () => {
             </div>
         </nav>
     )
-}
+};
 
 export default Navbar;
