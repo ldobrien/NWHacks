@@ -6,6 +6,7 @@ const initState = {
     },
     appointments: [],
     exercises: [],
+    medications: [],
 }
 
 const projectReducer = (state = initState, action) => {
@@ -28,7 +29,10 @@ const projectReducer = (state = initState, action) => {
             return{
                 exercises: [...state.exercises, action.exercise]
             }
-        
+        case 'ADD_MED_OP':
+            return{
+                medications: [...state.medications, action.med]
+            }
         default:
             return state;
     }

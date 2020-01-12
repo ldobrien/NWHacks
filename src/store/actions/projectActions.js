@@ -15,3 +15,9 @@ export const addExercise = (exercise)=> {
         dispatch({ type: "ADD_EXERCISE", exercise: exercise})
     }
 }
+
+export const addMedOp = (med)=> {
+    return (dispatch, getState) => {
+        dispatch({ type: "ADD_MED_OP", med: med})
+    }
+}
