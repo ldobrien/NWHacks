@@ -14,7 +14,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Event from '@material-ui/icons/Event';
 import Insurance from './Insurance';
-import Calendar from './Calendar';
+import CalendarPage from './CalendarPage';
 import Preop from './Preop';
 import Personal from './Personal';
 import Medications from './Medications';
@@ -100,7 +100,7 @@ export default function ScrollableTabsButtonForce() {
                 <Insurance/>
             </TabPanel>
             <TabPanel value={value} index={4}>
-                <Calendar/>
+                <CalendarPage/>
             </TabPanel>
             <TabPanel value={value} index={5}>
                 <Login/>
