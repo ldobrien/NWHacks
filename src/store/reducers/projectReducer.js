@@ -5,6 +5,7 @@ const initState = {
         totalToDate: 0,
     },
     appointments: [],
+    exercises: [],
 }
 
 const projectReducer = (state = initState, action) => {
@@ -22,6 +23,10 @@ const projectReducer = (state = initState, action) => {
         case 'ADD_APPT':
             return{
                 appointments: [...state.appointments, action.appt]
+            }
+        case 'ADD_EXERCISE':
+            return{
+                exercises: [...state.exercises, action.exercise]
             }
         
         default:
