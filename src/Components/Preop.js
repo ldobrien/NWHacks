@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
+import OpButtons from './OpCareTabs'
 
 class Preop extends Component {
   
     render() {
-      console.log("HELLLOO")
-      return(<div className="blue">
-        <h1 >Preop</h1>
-        <h1>Preop</h1>
-        <h1>Preop</h1>
+      return(<div>
+        <OpButtons />
         </div>);
     }
   }
