@@ -1,10 +1,25 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
 
 class Medications extends Component {
 
+    
     render() {
-      return <h1>Home</h1>;
+      var medList = []
+      if(this.props.medicationCosts) {
+        this.props.medicationCosts.name.forEach(element => {
+          medList.push(<div key={medList.length}>{element}</div>)
+        });
+      }
+
+      return <div className="black-text">{medList}</div>;
     }
   }
 
-  export default Medications;
+const mapStatetoProps = (state) => {
+    return {
+        medicationCosts: state.project.medicationCosts
+    }
+}
+
+export default connect(mapStatetoProps)(Medications)

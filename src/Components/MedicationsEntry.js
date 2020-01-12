@@ -8,19 +8,15 @@ class MedicationsEntry extends Component {
         price: 0,
         msp: 0,
         otherCoverage: 0,
-        totalCost: this.props.medicationCosts.totalCost,
-        totalToDate: this.props.medicationCosts.totalToDate,
+        totalCost: this.props.medicationCosts.totalCost || 0,
+        totalToDate: this.props.medicationCosts.totalToDate || 0,
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
         var total = this.state.price - this.state.msp - this.state.otherCoverage;
         var totalToDate = total + this.state.totalToDate
-        this.setState({
-            totalCost: total,
-            totalToDate: totalToDate
-        })
-        this.props.addMedication(this.state);
+        this.props.addMedication({name: this.state.name, totalCost: total, totalToDate});
     }
 
     handleChange = (e) =>{
@@ -30,7 +26,6 @@ class MedicationsEntry extends Component {
     }
 
     render() {
-        console.log(this.props.medicationCosts)
       return <div className="black-text">
           <form onSubmit={this.handleSubmit} className="white">
             <h5 className="grey-text text-darken-3">Cost</h5>
@@ -55,8 +50,8 @@ class MedicationsEntry extends Component {
             </div>
         </form>
         <div className="black-text">
-                <p>Total Cost of Entry: {this.state.totalCost}</p>
-                <p>Total Cost to Date: {this.state.totalToDate}</p>
+                <p>Total Cost of Entry: {this.props.medicationCosts.totalCost}</p>
+                <p>Total Cost to Date: {this.props.medicationCosts.totalToDate}</p>
             </div>
 
         </div>
