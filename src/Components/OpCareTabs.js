@@ -4,24 +4,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Home from '@material-ui/icons/Home';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import PersonPinIcon from '@material-ui/icons/PersonPin';
-import Healing from '@material-ui/icons/Healing';
-import ShoppingBasket from '@material-ui/icons/ShoppingBasket';
-import ThumbDown from '@material-ui/icons/ThumbDown';
-import AttachMoney from '@material-ui/icons/AttachMoney';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import Event from '@material-ui/icons/Event';
-import Insurance from './Insurance';
-import Calendar from './Calendar';
-import Preop from './Preop';
-import Postop from './Postop';
-import Personal from './Personal';
-import Medications from './Medications';
-import { Login } from './Login';
-import HomeScreen from './Home';
+import MedicationsOp from './MedicationsOp';
+import PhysioOp from './PhysioOp';
+import AppointmentsOp from './AppointmentsOp';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -31,8 +18,8 @@ function TabPanel(props) {
       component="div"
       role="tabpanel"
       hidden={value !== index}
-      id={`scrollable-force-tabpanel-${index}`}
-      aria-labelledby={`scrollable-force-tab-${index}`}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
       {value === index && <Box p={3}>{children}</Box>}
@@ -48,20 +35,19 @@ TabPanel.propTypes = {
 
 function a11yProps(index) {
   return {
-    id: `scrollable-force-tab-${index}`,
-    'aria-controls': `scrollable-force-tabpanel-${index}`,
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
   };
 }
 
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    width: '100%',
     backgroundColor: theme.palette.background.paper,
   },
 }));
 
-export default function OpButtons() {
+export default function SimpleTabs() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -71,33 +57,23 @@ export default function OpButtons() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="default">
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          variant="scrollable"
-          scrollButtons="on"
-          indicatorColor="primary"
-          textColor="primary"
-          aria-label="scrollable force tabs example"
-        >
-          <Tab label="Med" icon={<Home />} {...a11yProps(0)} />
-          <Tab label="Physio" icon={<FavoriteIcon />} {...a11yProps(1)} />
-          <Tab label="Appointments" icon={<Healing />} {...a11yProps(2)} />
+      <AppBar position="static">
+        <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
+          <Tab label="Medications" {...a11yProps(0)} />
+          <Tab label="Physio" {...a11yProps(1)} />
+          <Tab label="Appointments" {...a11yProps(1)} />
 
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        Med
-        <p className="black-text">Add</p>
+        <MedicationsOp />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Physio
+       <PhysioOp/>
       </TabPanel>
-      <TabPanel value={value} index={2}>
-        Appt
+      <TabPanel value={value} index={1}>
+       <AppointmentsOp/>
       </TabPanel>
-      
     </div>
   );
 }

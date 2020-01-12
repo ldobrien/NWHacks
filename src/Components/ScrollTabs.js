@@ -5,7 +5,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Home from '@material-ui/icons/Home';
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import PersonPinIcon from '@material-ui/icons/PersonPin';
 import Healing from '@material-ui/icons/Healing';
 import ShoppingBasket from '@material-ui/icons/ShoppingBasket';
@@ -17,7 +16,6 @@ import Event from '@material-ui/icons/Event';
 import Insurance from './Insurance';
 import Calendar from './Calendar';
 import Preop from './Preop';
-import Postop from './Postop';
 import Personal from './Personal';
 import Medications from './Medications';
 import { Login } from './Login';
@@ -82,15 +80,12 @@ export default function ScrollableTabsButtonForce() {
           aria-label="scrollable force tabs example"
         >
           <Tab label="Home" icon={<Home />} {...a11yProps(0)} />
-          
-          <Tab label="OperativeCare" icon={<FavoriteIcon />} {...a11yProps(1)} />
-          {/* <Tab label="Preop" icon={<FavoriteIcon />} {...a11yProps(1)} /> */}
-          <Tab label="Postop" icon={<Healing />} {...a11yProps(2)} />
-          <Tab label="Personal" icon={<PersonPinIcon />} {...a11yProps(3)} />
-          <Tab label="Medications" icon={<ShoppingBasket />} {...a11yProps(4)} />
-          <Tab label="Login" icon={<ThumbDown />} {...a11yProps(5)} />
-          <Tab label="Costs" icon={<AttachMoney />} {...a11yProps(6)} />
-          <Tab label="Calendar" icon={<Event />} {...a11yProps(7)} /> 
+          <Tab label="OperativeCare" icon={<Healing />} {...a11yProps(1)} />
+          <Tab label="Personal" icon={<PersonPinIcon />} {...a11yProps(2)} />
+          <Tab label="Medications" icon={<ShoppingBasket />} {...a11yProps(3)} />
+          <Tab label="Login" icon={<ThumbDown />} {...a11yProps(4)} />
+          <Tab label="Costs" icon={<AttachMoney />} {...a11yProps(5)} />
+          <Tab label="Calendar" icon={<Event />} {...a11yProps(6)} /> 
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
@@ -99,22 +94,20 @@ export default function ScrollableTabsButtonForce() {
       <TabPanel value={value} index={1}>
         <Preop/>
       </TabPanel>
+
       <TabPanel value={value} index={2}>
-        <Postop />
-      </TabPanel>
-      <TabPanel value={value} index={3}>
         <Personal/>
       </TabPanel>
-      <TabPanel value={value} index={4}>
+      <TabPanel value={value} index={3}>
         <Medications/>
       </TabPanel>
-      <TabPanel value={value} index={5}>
+      <TabPanel value={value} index={4}>
         <Login/>
       </TabPanel>
-      <TabPanel value={value} index={6}>
+      <TabPanel value={value} index={5}>
         <Insurance/>
       </TabPanel>
-      <TabPanel value={value} index={7}>
+      <TabPanel value={value} index={6}>
         <Calendar/>
       </TabPanel>
       
