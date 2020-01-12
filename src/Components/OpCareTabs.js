@@ -61,7 +61,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function ScrollableTabsButtonForce() {
+export default function OpButtons() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -81,41 +81,21 @@ export default function ScrollableTabsButtonForce() {
           textColor="primary"
           aria-label="scrollable force tabs example"
         >
-          <Tab label="Home" icon={<Home />} {...a11yProps(0)} />
-          
-          <Tab label="OperativeCare" icon={<FavoriteIcon />} {...a11yProps(1)} />
-          {/* <Tab label="Preop" icon={<FavoriteIcon />} {...a11yProps(1)} /> */}
-          <Tab label="Postop" icon={<Healing />} {...a11yProps(2)} />
-          <Tab label="Personal" icon={<PersonPinIcon />} {...a11yProps(3)} />
-          <Tab label="Medications" icon={<ShoppingBasket />} {...a11yProps(4)} />
-          <Tab label="Login" icon={<ThumbDown />} {...a11yProps(5)} />
-          <Tab label="Costs" icon={<AttachMoney />} {...a11yProps(6)} />
-          <Tab label="Calendar" icon={<Event />} {...a11yProps(7)} /> 
+          <Tab label="Med" icon={<Home />} {...a11yProps(0)} />
+          <Tab label="Physio" icon={<FavoriteIcon />} {...a11yProps(1)} />
+          <Tab label="Appointments" icon={<Healing />} {...a11yProps(2)} />
+
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <HomeScreen />
+        Med
+        <p className="black-text">Add</p>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <Preop/>
+        Physio
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <Postop />
-      </TabPanel>
-      <TabPanel value={value} index={3}>
-        <Personal/>
-      </TabPanel>
-      <TabPanel value={value} index={4}>
-        <Medications/>
-      </TabPanel>
-      <TabPanel value={value} index={5}>
-        <Login/>
-      </TabPanel>
-      <TabPanel value={value} index={6}>
-        <Insurance/>
-      </TabPanel>
-      <TabPanel value={value} index={7}>
-        <Calendar/>
+        Appt
       </TabPanel>
       
     </div>
