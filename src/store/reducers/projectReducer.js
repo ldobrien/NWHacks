@@ -28,14 +28,17 @@ const projectReducer = (state = initState, action) => {
             }
         case 'ADD_APPT':
             return{
+                ...state,
                 appointments: [...state.appointments, action.appt]
             }
         case 'ADD_EXERCISE':
             return{
+                ...state,
                 exercises: [...state.exercises, action.exercise]
             }
         case 'ADD_MED_OP':
             return{
+                ...state,
                 medications: [...state.medications, action.med]
             }
         case 'ADD_PHYSIO':
