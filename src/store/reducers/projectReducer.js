@@ -1,6 +1,6 @@
 const initState = {
     medicationCosts: {
-        name: null,
+        name: [],
         totalCost: 0,
         totalToDate: 0,
     },
@@ -11,8 +11,12 @@ const projectReducer = (state = initState, action) => {
         case 'ADD_MEDICATION':
             return {
                 ...state,
-                totalCost: action.med.totalCost,
-                totalToDate: action.med.totalToDate
+                medicationCosts: {
+                    ...state.medicationCosts,
+                    name: [...state.medicationCosts.name, action.med.name],
+                    totalCost: action.med.totalCost,
+                    totalToDate: action.med.totalToDate
+                }
             }
         
         default:

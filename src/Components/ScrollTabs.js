@@ -13,7 +13,9 @@ import ThumbDown from '@material-ui/icons/ThumbDown';
 import AttachMoney from '@material-ui/icons/AttachMoney';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import Event from '@material-ui/icons/Event';
 import Insurance from './Insurance';
+import Calendar from './Calendar';
 import Preop from './Preop';
 import Postop from './Postop';
 import Personal from './Personal';
@@ -79,18 +81,18 @@ export default function ScrollableTabsButtonForce() {
           textColor="primary"
           aria-label="scrollable force tabs example"
         >
-  
-          <Tab label="Costs" icon={<AttachMoney />} {...a11yProps(0)} />
+          <Tab label="Home" icon={<Home />} {...a11yProps(0)} />
           <Tab label="Preop" icon={<FavoriteIcon />} {...a11yProps(1)} />
           <Tab label="Postop" icon={<Healing />} {...a11yProps(2)} />
           <Tab label="Personal" icon={<PersonPinIcon />} {...a11yProps(3)} />
           <Tab label="Medications" icon={<ShoppingBasket />} {...a11yProps(4)} />
           <Tab label="Login" icon={<ThumbDown />} {...a11yProps(5)} />
-          <Tab label="Home" icon={<Home />} {...a11yProps(6)} />
+          <Tab label="Costs" icon={<AttachMoney />} {...a11yProps(6)} />
+          <Tab label="Calendar" icon={<Event />} {...a11yProps(7)} /> 
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <Insurance />
+        <HomeScreen />
       </TabPanel>
       <TabPanel value={value} index={1}>
         <Preop/>
@@ -108,8 +110,12 @@ export default function ScrollableTabsButtonForce() {
         <Login/>
       </TabPanel>
       <TabPanel value={value} index={6}>
-        <HomeScreen/>
+        <Insurance/>
       </TabPanel>
+      <TabPanel value={value} index={7}>
+        <Calendar/>
+      </TabPanel>
+      
     </div>
   );
 }
